@@ -1,0 +1,437 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f9fbfd;
+  font-size: 18px;
+}
+
+.container {
+  text-align: center;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.main-heading {
+  text-align: center;
+  margin: 1.25rem 0;
+}
+
+/* Intro Styles */
+.intro {
+  margin-top: 2rem;
+}
+
+.intro-span {
+  display: inline-block;
+  color: #b0b7bf;
+  font-size: 0.78rem;
+  letter-spacing: 0.0714em;
+  text-transform: uppercase;
+}
+
+.intro-heading {
+  color: #ff554f;
+  padding: 0 1rem;
+  font-size: 2rem;
+  line-height: 1;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.intro-copy_text {
+  color: #3c4a55;
+  margin: 0;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+/* Password Display */
+.password-generator_display {
+  border: 1px solid #eaeaea;
+  border-radius: 5px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  border-top: 1px;
+  border-right: 1px;
+  border-bottom: 0;
+  border-left: 1px;
+  border-style: solid;
+  border-color: #eaeaea;
+  margin-bottom: 2rem;
+}
+
+.password-generator_input {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 65%;
+  max-width: 65%;
+  padding-left: 10px;
+  border: 0;
+  color: #506175;
+  font-size: 2rem;
+  text-align: left;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@media only screen and (min-width: 500px) {
+  .password-generator_input {
+    width: 75%;
+    max-width: 75%;
+  }
+}
+
+@media only screen and (min-width: 680px) {
+  .password-generator_input {
+    width: 85%;
+    max-width: 85%;
+  }
+}
+
+.password-display {
+  display: flex;
+  margin: 0 auto;
+  height: 115px;
+  padding: 2rem;
+}
+
+.password-generator_icons {
+  display: flex;
+  flex-shrink: 0;
+  padding: 5px;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  width: 90px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.fal {
+  font-size: 1.5rem;
+}
+
+.fa-times {
+  cursor: pointer;
+}
+
+.password-generator_copy,
+.password-generator_generate {
+  cursor: pointer;
+  border: 0;
+  background-color: #fff;
+  padding: 10px;
+  margin-right: 5px;
+}
+
+.password-generator_strength-wrapper {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 11px;
+  background-color: #f5f5f5;
+  overflow: hidden;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -webkit-transition: background-color 0.63s;
+  transition: background-color 0.63s;
+}
+
+.password-generator_strength {
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  width: 0;
+  height: 10px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #5ed98a;
+  -webkit-transition: width 0.63s;
+  transition: width 0.63s;
+  width: 10%;
+  background-color: rgb(241, 155, 43);
+}
+
+.password-strength-weak {
+  width: 40%;
+  background-color: rgb(216, 209, 69);
+}
+
+.password-strength-okay {
+  width: 60%;
+  background-color: rgb(152, 203, 111);
+}
+
+.password-strength-good {
+  width: 80%;
+  background-color: rgb(95, 216, 137);
+}
+
+.password-strength-great {
+  width: 100%;
+  background-color: rgb(47, 218, 107);
+}
+
+/* Password Options */
+.password-generator_options {
+  border: 1px solid #eaeaea;
+  border-radius: 5px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  border-top: 1px;
+  border-right: 1px;
+  border-bottom: 0;
+  border-left: 1px;
+  border-style: solid;
+  border-color: #eaeaea;
+  margin-bottom: 2rem;
+}
+
+.password-generator_options-form {
+  /* display: flex; */
+  width: 100%;
+  padding: 1rem;
+  text-align: left;
+}
+
+.info-toast {
+  display: none;
+  position: relative;
+  background-color: #e1f5fe;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.toast-message {
+  padding: 1rem;
+}
+
+.toast-close {
+  position: absolute;
+  top: 22px;
+  right: 20px;
+}
+
+.toast-message > h4 {
+  margin-bottom: 0.25rem;
+}
+
+.password-generator_options-heading {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid #f5f7f8;
+  padding: 1rem 0;
+}
+
+.password-generator_range-wrapper {
+  display: block;
+  /* width: 50%; */
+  margin-bottom: 1.5rem;
+}
+
+.range-slider {
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  width: 68%;
+  background: #d3d3d3; /* Grey background */
+  border-radius: 5px;
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+  transition: opacity 0.2s;
+  height: 0.75rem; /* Specified height */
+}
+
+/* Mouse-over effects */
+.range-slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  border-radius: 50%;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #ff554f; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.range-slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #ff554f; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.password-generator_range-label {
+  display: block;
+  margin-bottom: 14px;
+  color: #506175;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.range-number {
+  width: 12%;
+  max-width: 80px;
+  min-width: 50px;
+  text-align: center;
+  margin-right: 1.25rem;
+  padding: 1rem 0;
+  border: 1px solid #c8c8c8;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.password-generator_checkbox-wrapper {
+  /* width: 50%; */
+  width: 100%;
+  /* display: flex;
+  flex-direction: column; */
+}
+
+.checkbox-container {
+  margin-bottom: 1rem;
+}
+
+.password-generator_buttons {
+  text-align: center;
+}
+
+.password-generator_btn {
+  margin: 2rem;
+}
+
+.password-generator_copy-btn {
+  width: 100%;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 0;
+  outline: none;
+  padding: 1rem;
+  font-size: 1rem;
+  background: #ff554f;
+  color: #fff;
+}
+
+.password-generator_generate-btn {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 0;
+  outline: none;
+  padding: 1rem;
+  font-size: 1rem;
+  background: #c02c26;
+  color: #fff;
+}
+
+@media only screen and (min-width: 500px) {
+  .password-generator_buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+
+  .password-generator_generate-btn {
+    max-width: 200px;
+  }
+
+  .password-generator_copy-btn {
+    max-width: 200px;
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (min-width: 690px) {
+  .password-generator_buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: start;
+  }
+}
+
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modal {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  overflow: hidden;
+  top: 25%;
+  left: 50%;
+  max-width: 800px;
+  width: 80%;
+  /* Puts the modal box in the middle */
+  transform: translate(-50%, -50%);
+  /* Animates - keyframes are added at the bottom of this page*/
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+}
+
+.modal-header {
+  background-color: #ff554f;
+  color: #fff;
+  padding: 1rem;
+}
+
+.modal-header h3 {
+  margin: 0;
+}
+
+.modal-content {
+  padding: 1.5rem;
+}
+
+.close-btn {
+  background: transparent;
+  font-size: 25px;
+  position: absolute;
+  top: 14px;
+  right: 15px;
+  color: #fff;
+  border: 0;
+  outline: none;
+}

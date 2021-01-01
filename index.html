@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>PassWord Generation</title>
+    <script
+      src="https://kit.fontawesome.com/afb09f7670.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <link rel="shortcut icon" href="screenshots/favicon.ico">
+  <body class="bg-light">
+    <main>
+      <!-- Container for application -->
+      <div class="container">
+        <!-- Intro Section -->
+        <section class="intro">
+          <div class="intro-hero">
+            <span class="intro-span">Password Generator Tool</span>
+            <h1 class="intro-heading">Generate a secure password</h1>
+            <div class="intro-copy">
+              <h4 class="intro-copy_text">
+                Use this online password generator to create a secure, random
+                password.
+              </h4>
+            </div>
+          </div>
+        </section>
+
+        <!-- Password Generator Section -->
+        <section class="password-generator_display">
+          <!-- Password Display -->
+          <div class="password-display">
+            <form id="display-form">
+              <input
+                type="text"
+                id="password-display"
+                class="password-generator_input"
+                spellcheck="false"
+              />
+            </form>
+            <div class="password-generator_icons">
+              <button class="password-generator_copy" id="copy">
+                <i class="fal fa-copy"></i>
+              </button>
+              <button class="password-generator_generate" id="generate">
+                <i class="fal fa-sync"></i>
+              </button>
+            </div>
+            <!-- Password Strength Bar -->
+            <div class="password-generator_strength-wrapper">
+              <div
+                class="password-generator_strength"
+                id="passwordStrength"
+              ></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Password Options -->
+        <section class="password-generator_options">
+          <h3 class="password-generator_options-heading">
+            Customize your password
+          </h3>
+          <form class="password-generator_options-form" id="options-form">
+            <!-- Password Range/Number -->
+            <div class="password-generator_range-wrapper">
+              <!-- Info toast -->
+              <div class="info-toast">
+                <div class="toast-message">
+                  <h4>Options Required</h4>
+                  <p>
+                    You must select at least one option to generate a password.
+                  </p>
+                  <div class="toast-close" id="close">
+                    <i class="fal fa-times"></i>
+                  </div>
+                </div>
+              </div>
+
+              <label
+                for="password-generator_range-number"
+                class="password-generator_range-label"
+                >Password Length</label
+              >
+              <input
+                type="number"
+                value="12"
+                min="1"
+                max="128"
+                class="range-number"
+                id="range-number"
+              />
+              <input
+                type="range"
+                min="1"
+                max="128"
+                value="12"
+                class="range-slider"
+                id="range-slider"
+              />
+            </div>
+            <!-- Password Checkboxes -->
+            <div class="password-generator_checkbox-wrapper">
+              <div class="checkbox-container">
+                <!-- Uppercase Checkbox -->
+                <label for="password-generator_checkbox-uppercase"
+                  >Uppercase</label
+                >
+                <input
+                  type="checkbox"
+                  name="uppercase"
+                  id="checkbox-uppercase"
+                  checked
+                />
+              </div>
+
+              <div class="checkbox-container">
+                <!-- Lowercase Checkbox -->
+                <label for="checkbox-uppercase">Lowercase</label>
+                <input
+                  type="checkbox"
+                  name="lowercase"
+                  id="checkbox-lowercase"
+                  checked
+                />
+              </div>
+
+              <div class="checkbox-container">
+                <!-- Numbers Checkbox -->
+                <label for="checkbox-uppercase">Numbers</label>
+                <input
+                  type="checkbox"
+                  name="numbers"
+                  id="checkbox-numbers"
+                  checked
+                />
+              </div>
+
+              <div class="checkbox-container">
+                <!-- Symbols Checkbox -->
+                <label for="password-generator_checkbox-uppercase"
+                  >Symbols</label
+                >
+                <input
+                  type="checkbox"
+                  name="symbols"
+                  id="checkbox-symbols"
+                  checked
+                />
+              </div>
+            </div>
+
+            <div class="password-generator_buttons">
+              <button class="password-generator_copy-btn" id="copy-btn">
+                Copy Password
+              </button>
+              <button class="password-generator_generate-btn" id="generate-btn">
+                Generate Password
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Modal -->
+        <div class="modal-container" id="modal">
+          <div class="modal">
+            <button class="close-btn" id="closeModal">
+              <i class="fa fa-times"></i>
+            </button>
+            <div class="modal-header">
+              <h3>Password copied to clipboard!</h3>
+            </div>
+            <div class="modal-content">
+              <p id="modalText"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
